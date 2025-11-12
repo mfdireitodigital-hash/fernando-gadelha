@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartilha de Segurança - Fernando Gadelha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-bottom: 4px solid #f093fb;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        header .subtitle {
+            font-size: 1em;
+            margin-top: 15px;
+            color: #f093fb;
+            font-weight: 600;
+        }
+
+        nav {
+            background-color: rgba(255,255,255,0.95);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 700;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background-color: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #f093fb;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #f093fb;
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.6em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #764ba2;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .danger-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+            padding: 20px;
+            border-left: 5px solid #ff6b6b;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, rgba(51, 217, 178, 0.1) 0%, rgba(51, 217, 178, 0.05) 100%);
+            padding: 20px;
+            border-left: 5px solid #33d9b2;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-caption {
+            font-size: 0.95em;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        table tr:hover {
+            background-color: #f8f9ff;
+        }
+
+        .checklist {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #f093fb;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.05em;
+        }
+
+        .quiz-container {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .quiz-question h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            background-color: #f8f9ff;
+        }
+
+        .quiz-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .quiz-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .quiz-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .quiz-result {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #33d9b2;
+            font-weight: 600;
+        }
+
+        .quiz-result.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #f093fb;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-weight: 700;
+            border-top: 2px solid #f093fb;
+            padding-top: 20px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffd89b;
+        }
+
+        .tip-box strong {
+            color: #ffd89b;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            nav a {
+                display: block;
+                text-align: center;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            table {
+                font-size: 0.95em;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cartilha de Segurança para Influenciadores</h1>
+        <p>Como Evitar Bloqueios no Instagram</p>
+        <div class="subtitle">Para: Fernando Gadelha (@feehzero1)</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#gatilhos">Gatilhos</a></li>
+            <li><a href="#cassinos">Cassinos</a></li>
+            <li><a href="#rifas">Rifas</a></li>
+            <li><a href="#hashtags">Hashtags</a></li>
+            <li><a href="#imagens">Imagens</a></li>
+            <li><a href="#casos">Casos Reais</a></li>
+            <li><a href="#dicas">Dicas Práticas</a></li>
+            <li><a href="#checklist">Checklist</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro">
+            <h2>Bem-vindo, Fernando!</h2>
+            <p>Você foi bloqueado. Sua conta voltou. Agora é hora de aprender a jogar pelo manual da Meta para não cair novamente.</p>
+            <p>Esta cartilha foi criada especialmente para você. Não é chato, não é complicado, é direto ao ponto. Vamos falar sobre tudo que a Meta não gosta, como ela detecta, e como você pode criar conteúdo incrível sem acionar os alarmes da plataforma.</p>
+            
+            <div class="highlight-box">
+                <strong>Regra de Ouro:</strong> A Meta não quer bloquear você. Ela quer proteger seus usuários. Entenda a diferença e você vai ficar seguro.
+            </div>
+
+            <h3>O que você vai aprender</h3>
+            <ul>
+                <li>Quais são os gatilhos que fazem a Meta bloquear contas</li>
+                <li>Por que cassinos e rifas são tão perigosos</li>
+                <li>Quais hashtags, emojis e palavras acionar os alarmes</li>
+                <li>Quais imagens são proibidas ou perigosas</li>
+                <li>Casos reais de influenciadores que foram bloqueados (e por quê)</li>
+                <li>Dicas práticas para criar conteúdo de rua seguro</li>
+                <li>Um checklist para usar antes de cada post</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>Objetivo:</strong> Você vai aprender a fazer conteúdo que engaja, que diverte, que gera views, mas que não coloca sua conta em risco.
+            </div>
+        </section>
+
+        <section id="gatilhos">
+            <h2>Os Gatilhos da Meta</h2>
+            <p>A Meta tem sistemas automáticos que analisam cada post, story, reel e comentário. Esses sistemas procuram por certos padrões que indicam conteúdo problemático. Quando encontram, marcam para revisão manual ou bloqueiam automaticamente.</p>
+
+            <h3>Os 5 Gatilhos Principais</h3>
+
+            <h4>1. Conteúdo de Jogos de Azar</h4>
+            <p>Qualquer menção a cassinos, slots, apostas, bingo, loteria ou jogos de sorte é um gatilho gigante. A Meta não permite porque esses jogos são viciantes e prejudicam pessoas vulneráveis.</p>
+            <p><strong>Exemplos que acionam:</strong> "Ganhei 1000 no cassino", "Aposta segura", "Jogo do tigrinho", "Slots online", "Bingo online".</p>
+
+            <h4>2. Conteúdo de Rifas e Sorteios Ilegais</h4>
+            <p>Rifas e sorteios não são ilegais no Brasil, mas a Meta tem regras muito rigorosas. Ela quer garantir que são legítimas, que têm transparência, e que não exploram pessoas.</p>
+            <p><strong>Exemplos que acionam:</strong> "Rifa de carro", "Sorteio de dinheiro", "Rifa sem regras claras".</p>
+
+            <h4>3. Linguagem de Urgência e Exploração</h4>
+            <p>Palavras como "agora", "rápido", "último chance", "não perca", "limitado" combinadas com ofertas financeiras acionam alarmes. A Meta vê isso como exploração de pessoas desesperadas.</p>
+            <p><strong>Exemplos que acionam:</strong> "Ganhe dinheiro AGORA", "Última chance de ficar rico", "Aproveite RÁPIDO".</p>
+
+            <h4>4. Promessas Enganosas</h4>
+            <p>Prometer resultados que não podem ser garantidos é um gatilho. "Ganhe 1000 por dia", "Fique rico em 7 dias", "Garantido 100%".</p>
+
+            <h4>5. Conteúdo Sensacionalista</h4>
+            <p>Manchetes alarmantes, números exagerados, imagens de desespero ou vulnerabilidade. A Meta vê isso como exploração.</p>
+
+            <div class="danger-box">
+                <strong>Aviso:</strong> Um único post com um desses gatilhos pode não bloquear sua conta. Mas vários posts, ou um post muito óbvio, vai. E quanto mais vezes você viola, mais severa é a punição.
+            </div>
+        </section>
+
+        <section id="cassinos">
+            <h2>Cassinos: O Gatilho Mais Perigoso</h2>
+            
+            <div class="image-container">
+                <img src="images/cGGojccdPldU.jpg" alt="Tigrinho e cassinos online">
+                <p class="image-caption">Conteúdo sobre cassinos é bloqueado automaticamente pela Meta</p>
+            </div>
+
+            <p>Cassinos online, slots, jogo do tigrinho, crash games, jogos de azar em geral: tudo isso é um gatilho de bloqueio automático. A Meta não negocia nesse assunto.</p>
+
+            <h3>Por que a Meta bloqueia cassinos?</h3>
+            <ul>
+                <li>Cassinos online são ilegais no Brasil (com poucas exceções)</li>
+                <li>Causam vício e prejudicam pessoas financeiramente</li>
+                <li>Exploram pessoas vulneráveis</li>
+                <li>Muitos cassinos online são golpes</li>
+            </ul>
+
+            <h3>O que você NÃO pode fazer</h3>
+            <ul>
+                <li>Postar sobre ganhos em cassinos</li>
+                <li>Compartilhar links de cassinos</li>
+                <li>Fazer "reviews" de cassinos</li>
+                <li>Promover aplicativos de cassino</li>
+                <li>Mostrar telas de cassinos</li>
+                <li>Fazer conteúdo tipo "ganhei 5000 no cassino"</li>
+                <li>Mencionar nomes de cassinos online</li>
+            </ul>
+
+            <h3>O que você PODE fazer</h3>
+            <ul>
+                <li>Falar sobre educação financeira</li>
+                <li>Alertar sobre riscos de cassinos online</li>
+                <li>Contar histórias de pessoas que perderam dinheiro em cassinos (como aviso)</li>
+                <li>Promover jogos legais (videogames, esportes, etc)</li>
+                <li>Fazer conteúdo sobre como ganhar dinheiro de forma legal</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>Dica:</strong> Se você quer fazer conteúdo sobre cassinos, faça como educação. "Cuidado com cassinos online", "Como não cair em golpes de cassino". Isso é permitido.
+            </div>
+        </section>
+
+        <section id="rifas">
+            <h2>Rifas e Sorteios: A Zona Cinzenta</h2>
+            
+            <div class="image-container">
+                <img src="images/CdrcsxM1sUJZ.png" alt="Rifas e sorteios legais vs ilegais">
+                <p class="image-caption">Diferença entre rifas legais e ilegais</p>
+            </div>
+
+            <p>Rifas e sorteios não são ilegais no Brasil. Mas a Meta tem regras muito específicas. Se você violar, sua conta é bloqueada.</p>
+
+            <h3>Rifas Legais (Permitidas pela Meta)</h3>
+            <ul>
+                <li>Autorizado pelo Ministério da Economia</li>
+                <li>Tem transparência total</li>
+                <li>Prêmios são reais e podem ser entregues</li>
+                <li>Tem regulamentação clara</li>
+                <li>Não explora pessoas vulneráveis</li>
+            </ul>
+
+            <h3>Rifas Ilegais (Bloqueadas pela Meta)</h3>
+            <ul>
+                <li>Sem autorização governamental</li>
+                <li>Sem transparência</li>
+                <li>Prêmios fictícios ou impossíveis</li>
+                <li>Exploram pessoas desesperadas</li>
+                <li>Combinadas com cassinos ou jogos de azar</li>
+            </ul>
+
+            <h3>Como a Meta Detecta Rifas Ilegais</h3>
+            <p>A Meta usa inteligência artificial para analisar:</p>
+            <ul>
+                <li>Linguagem usada (urgência, exploração)</li>
+                <li>Imagens (dinheiro, carros de luxo, símbolos de riqueza)</li>
+                <li>Histórico da conta (se já foi bloqueada antes)</li>
+                <li>Denúncias de usuários</li>
+                <li>Padrões de comportamento (muitos posts sobre sorteios)</li>
+            </ul>
+
+            <div class="danger-box">
+                <strong>Cuidado:</strong> Se você vai fazer uma rifa legítima, precisa documentar tudo. Autorização, regras claras, transparência. Mesmo assim, pode ser bloqueado se a Meta achar suspeito.
+            </div>
+
+            <div class="tip-box">
+                <strong>Dica de Ouro:</strong> Se você quer fazer sorteios, faça com produtos pequenos (livros, cursos, produtos digitais) e deixe tudo muito claro. Quanto menor o prêmio, menor o risco.
+            </div>
+        </section>
+
+        <section id="hashtags">
+            <h2>Hashtags Perigosas</h2>
+            <p>Hashtags são uma forma de a Meta categorizar conteúdo. Usar hashtags perigosas é como colocar uma placa dizendo "este post é sobre conteúdo proibido".</p>
+
+            <h3>Hashtags que Acionam Bloqueios</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hashtag</th>
+                        <th>Por que é perigosa</th>
+                        <th>Alternativa Segura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#cassino</td>
+                        <td>Diretamente relacionada a jogos de azar</td>
+                        <td>#educaçãofinanceira</td>
+                    </tr>
+                    <tr>
+                        <td>#jogo do tigrinho</td>
+                        <td>Jogo de azar ilegal</td>
+                        <td>#jogoslegais</td>
+                    </tr>
+                    <tr>
+                        <td>#ganhedinheiro</td>
+                        <td>Genérica, mas combinada com outras é perigosa</td>
+                        <td>#renda extra</td>
+                    </tr>
+                    <tr>
+                        <td>#rifailegítima</td>
+                        <td>Admite que é ilegal</td>
+                        <td>#sorteio</td>
+                    </tr>
+                    <tr>
+                        <td>#apostas</td>
+                        <td>Jogos de azar</td>
+                        <td>#esportes</td>
+                    </tr>
+                    <tr>
+                        <td>#ganheagora</td>
+                        <td>Linguagem de urgência + dinheiro = perigoso</td>
+                        <td>#oportunidade</td>
+                    </tr>
+                    <tr>
+                        <td>#bomdia100mil</td>
+                        <td>Promessa exagerada</td>
+                        <td>#motivação</td>
+                    </tr>
+                    <tr>
+                        <td>#slots</td>
+                        <td>Cassino online</td>
+                        <td>#videogames</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Hashtags Seguras que Você Pode Usar</h3>
+            <p>#influencer #conteúdo #rua #perguntas #viral #trending #reels #shorts #instagram #criador #criadordeconteúdo #brasil #humor #diversão #entretenimento #lifestyle #viagem #educação #motivação #dicas</p>
+
+            <div class="highlight-box">
+                <strong>Regra:</strong> Evite hashtags que mencionem dinheiro, jogos, cassinos, apostas ou rifas. Se a hashtag soa "demais", provavelmente é perigosa.
+            </div>
+        </section>
+
+        <section id="imagens">
+            <h2>Imagens Perigosas</h2>
+            <p>Imagens são analisadas por inteligência artificial. Certos tipos de imagens acionam alarmes automáticos.</p>
+
+            <h3>Imagens que Acionam Bloqueios</h3>
+            <ul>
+                <li><strong>Dinheiro em espécie:</strong> Notas, moedas, pilhas de dinheiro</li>
+                <li><strong>Cartões de crédito:</strong> Mesmo que ilustrativos</li>
+                <li><strong>Pessoas em desespero:</strong> Expressões de medo, tristeza, vulnerabilidade</li>
+                <li><strong>Símbolos de riqueza exagerada:</strong> Carros de luxo, mansões, jatos</li>
+                <li><strong>Telas de cassinos:</strong> Screenshots de jogos de azar</li>
+                <li><strong>Gráficos enganosos:</strong> Crescimento impossível, números fakes</li>
+                <li><strong>Imagens de armas:</strong> Pistolas, revólveres (mesmo em rifas)</li>
+                <li><strong>Imagens sexualizadas:</strong> Especialmente combinadas com dinheiro</li>
+            </ul>
+
+            <h3>Imagens Seguras</h3>
+            <ul>
+                <li>Você na rua fazendo conteúdo</li>
+                <li>Pessoas rindo, felizes, naturais</li>
+                <li>Paisagens, natureza, cidades</li>
+                <li>Produtos (livros, cursos, produtos digitais)</li>
+                <li>Você em eventos, viajando, se divertindo</li>
+                <li>Gráficos educacionais (sem números fake)</li>
+                <li>Imagens de qualidade profissional</li>
+            </ul>
+
+            <div class="danger-box">
+                <strong>Aviso:</strong> Mesmo que você coloque um dinheiro de brinquedo ou fake na imagem, a IA pode detectar e bloquear. Evite totalmente.
+            </div>
+        </section>
+
+        <section id="casos">
+            <h2>Casos Reais de Bloqueio</h2>
+
+            <h3>Caso 1: O Influenciador que Postou Sobre Cassino</h3>
+            <p><strong>O que aconteceu:</strong> Um influenciador com 500k seguidores postou uma story dizendo "Ganhei 5000 no cassino, vocês querem aprender?". A Meta bloqueou a conta em 2 horas. Não foi aviso, foi bloqueio direto.</p>
+            <p><strong>Consequência:</strong> A conta ficou bloqueada por 30 dias. Perdeu 100k seguidores (pessoas desistiram de esperar). Quando voltou, tinha restrições severas.</p>
+            <p><strong>Lição:</strong> Não poste sobre cassinos. Nunca. Nem como brincadeira, nem como "educação".</p>
+
+            <h3>Caso 2: A Rifa que Virou Bloqueio</h3>
+            <p><strong>O que aconteceu:</strong> Um influenciador fez uma rifa de um carro. Tinha tudo documentado, era legal. Mas postou com a frase "Última chance! Aproveita agora!" e uma imagem do dinheiro. A Meta bloqueou por "conteúdo de rifa suspeita".</p>
+            <p><strong>Consequência:</strong> Bloqueio de 7 dias. Perdeu o momentum da rifa. Teve que refazer tudo.</p>
+            <p><strong>Lição:</strong> Mesmo que sua rifa seja legal, a forma como você comunica importa. Evite urgência, evite imagens de dinheiro.</p>
+
+            <h3>Caso 3: O Influenciador que Usou Hashtags Perigosas</h3>
+            <p><strong>O que aconteceu:</strong> Um criador de conteúdo postou um reel sobre educação financeira. O conteúdo era bom, mas usou #ganhedinheiro #renda #oportunidade. A Meta viu como spam e bloqueou.</p>
+            <p><strong>Consequência:</strong> Restrição de alcance por 14 dias. O reel que tinha potencial para viralizar ficou invisível.</p>
+            <p><strong>Lição:</strong> Hashtags importam. Use as certas.</p>
+
+            <h3>Caso 4: O Influenciador que Voltou Seguro</h3>
+            <p><strong>O que aconteceu:</strong> Um influenciador foi bloqueado. Quando voltou, mudou completamente sua estratégia. Começou a fazer conteúdo de rua, perguntas para pessoas, educação. Sem mencionar dinheiro, cassinos ou rifas. Apenas conteúdo leve e divertido.</p>
+            <p><strong>Consequência:</strong> Cresceu 200k seguidores em 3 meses. Nunca mais foi bloqueado.</p>
+            <p><strong>Lição:</strong> Você pode crescer sem conteúdo perigoso. Basta ser criativo.</p>
+
+            <div class="success-box">
+                <strong>Moral da história:</strong> Os influenciadores que crescem de forma sustentável são aqueles que entendem as regras e as respeitam. Não é chato, é inteligente.
+            </div>
+        </section>
+
+        <section id="dicas">
+            <h2>Dicas Práticas para Conteúdo de Rua</h2>
+            <p>Você vai fazer conteúdo de rua, perguntando para pessoas. Ótimo! Aqui estão dicas para fazer isso de forma segura.</p>
+
+            <h3>Dica 1: Temas Seguros para Perguntas de Rua</h3>
+            <ul>
+                <li>Qual é seu maior sonho?</li>
+                <li>O que você faria com 1 milhão de reais? (educacional, não como oferta)</li>
+                <li>Qual foi seu maior medo?</li>
+                <li>Como você superou um desafio?</li>
+                <li>Qual é seu conselho para a vida?</li>
+                <li>O que você aprendeu com seus erros?</li>
+                <li>Qual é sua história de sucesso?</li>
+                <li>Como você gasta seu tempo livre?</li>
+            </ul>
+
+            <h3>Dica 2: Temas Perigosos (Evite)</h3>
+            <ul>
+                <li>Você já ganhou dinheiro fácil?</li>
+                <li>Você joga em cassinos?</li>
+                <li>Você participa de rifas?</li>
+                <li>Como você ficou rico rápido?</li>
+                <li>Qual foi seu maior ganho?</li>
+                <li>Você acredita em sorte?</li>
+            </ul>
+
+            <h3>Dica 3: Como Editar Seus Vídeos com Segurança</h3>
+            <ul>
+                <li>Evite textos sobre dinheiro, cassinos, rifas</li>
+                <li>Evite emojis de dinheiro, moedas, cartões</li>
+                <li>Use cores vibrantes, mas nada muito agressivo</li>
+                <li>Adicione legendas claras (a IA lê legendas)</li>
+                <li>Não use efeitos que parecem "enganosos"</li>
+                <li>Mantenha o tom leve e divertido</li>
+            </ul>
+
+            <h3>Dica 4: Captions Seguras</h3>
+            <p>A caption (descrição do post) é analisada pela IA. Seja cuidadoso:</p>
+            <ul>
+                <li>Descreva o que está no vídeo</li>
+                <li>Evite promessas ("Você vai ficar rico")</li>
+                <li>Evite urgência ("Rápido, antes que acabe")</li>
+                <li>Evite números exagerados ("Ganhei 10000")</li>
+                <li>Seja honesto e transparente</li>
+            </ul>
+
+            <h3>Dica 5: Frequência de Posts</h3>
+            <p>Postar muito sobre o mesmo tema é um gatilho. Varie seu conteúdo:</p>
+            <ul>
+                <li>Não poste 10 reels sobre dinheiro em um dia</li>
+                <li>Alterne entre temas diferentes</li>
+                <li>Deixe alguns dias sem postar</li>
+                <li>Responda comentários (mostra que é conta real)</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>Dica de Ouro:</strong> Quanto mais natural seu conteúdo parecer, menos risco de bloqueio. Vídeos de qualidade, pessoas reais, conversas genuínas. Isso é o que a Meta quer.
+            </div>
+        </section>
+
+        <section id="checklist">
+            <h2>Checklist Pré-Publicação</h2>
+            <p>Antes de publicar qualquer coisa, use este checklist. Se algum item ficar vermelho, não publique.</p>
+
+            <div class="checklist">
+                <h4>Conteúdo</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1">
+                    <label for="check1">Não há menção a cassinos, slots ou jogos de azar?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">Não há promessas de ganhar dinheiro fácil?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3">
+                    <label for="check3">Não há linguagem de urgência ("rápido", "agora", "último chance")?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4">
+                    <label for="check4">O conteúdo é honesto e transparente?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5">
+                    <label for="check5">Não há exploração de vulnerabilidade?</label>
+                </div>
+
+                <h4 style="margin-top: 25px;">Imagens e Vídeo</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6">
+                    <label for="check6">Não há imagens de dinheiro, cartões ou símbolos de riqueza?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check7">
+                    <label for="check7">Não há imagens de pessoas em desespero?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check8">
+                    <label for="check8">A qualidade do vídeo é boa?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check9">
+                    <label for="check9">Não há efeitos que parecem "enganosos"?</label>
+                </div>
+
+                <h4 style="margin-top: 25px;">Hashtags e Emojis</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check10">
+                    <label for="check10">Não há hashtags perigosas?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check11">
+                    <label for="check11">Não há emojis de dinheiro, moedas ou cassino?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check12">
+                    <label for="check12">As hashtags são relevantes e profissionais?</label>
+                </div>
+
+                <h4 style="margin-top: 25px;">Caption e Texto</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check13">
+                    <label for="check13">A caption descreve honestamente o conteúdo?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check14">
+                    <label for="check14">Não há números exagerados ou fake?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check15">
+                    <label for="check15">Não há links suspeitos?</label>
+                </div>
+
+                <h4 style="margin-top: 25px;">Geral</h4>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check16">
+                    <label for="check16">Este conteúdo é algo que você se orgulharia de mostrar para sua mãe?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check17">
+                    <label for="check17">Você tem certeza que não vai ser bloqueado?</label>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <strong>Se todos os itens estão marcados:</strong> Parabéns! Seu conteúdo está seguro. Publique com confiança.
+            </div>
+
+            <div class="danger-box">
+                <strong>Se algum item não está marcado:</strong> Revise seu conteúdo. Não publique até ter certeza.
+            </div>
+        </section>
+
+        <section id="quiz">
+            <h2>Quiz: Teste Seu Conhecimento</h2>
+            <p>Responda as perguntas abaixo para ver se você aprendeu. Este quiz é só para você testar, não é obrigatório.</p>
+
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h4>Pergunta 1: Qual é o gatilho MAIS perigoso para sua conta?</h4>
+                    <div class="quiz-option">
+                        <input type="radio" name="q1" value="a" id="q1a">
+                        <label for="q1a">A) Postar sobre cassinos ou jogos de azar</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q1" value="b" id="q1b">
+                        <label for="q1b">B) Postar sobre educação financeira</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q1" value="c" id="q1c">
+                        <label for="q1c">C) Postar sobre viagens</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Pergunta 2: Qual hashtag é segura?</h4>
+                    <div class="quiz-option">
+                        <input type="radio" name="q2" value="a" id="q2a">
+                        <label for="q2a">A) #cassino</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q2" value="b" id="q2b">
+                        <label for="q2b">B) #ganhedinheiro</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q2" value="c" id="q2c">
+                        <label for="q2c">C) #criadordeconteúdo</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Pergunta 3: Qual imagem é PROIBIDA?</h4>
+                    <div class="quiz-option">
+                        <input type="radio" name="q3" value="a" id="q3a">
+                        <label for="q3a">A) Você na rua fazendo conteúdo</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q3" value="b" id="q3b">
+                        <label for="q3b">B) Notas de dinheiro em espécie</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q3" value="c" id="q3c">
+                        <label for="q3c">C) Pessoas rindo e felizes</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Pergunta 4: O que você deve fazer se foi bloqueado?</h4>
+                    <div class="quiz-option">
+                        <input type="radio" name="q4" value="a" id="q4a">
+                        <label for="q4a">A) Criar uma nova conta e continuar do mesmo jeito</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q4" value="b" id="q4b">
+                        <label for="q4b">B) Aprender com os erros e mudar sua estratégia</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q4" value="c" id="q4c">
+                        <label for="q4c">C) Desistir de fazer conteúdo</label>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Pergunta 5: Qual é a melhor estratégia para crescer com segurança?</h4>
+                    <div class="quiz-option">
+                        <input type="radio" name="q5" value="a" id="q5a">
+                        <label for="q5a">A) Fazer conteúdo de rua, educacional e divertido</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q5" value="b" id="q5b">
+                        <label for="q5b">B) Postar sobre cassinos e rifas para ganhar views</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="q5" value="c" id="q5c">
+                        <label for="q5c">C) Copiar conteúdo de outros influenciadores</label>
+                    </div>
+                </div>
+
+                <button class="quiz-button" onclick="corrigirQuiz()">Ver Resultado</button>
+                <div class="quiz-result" id="resultado"></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Conclusão: Você Está Pronto</h2>
+            <p>Você foi bloqueado. Aprendeu a lição. Agora você sabe exatamente como evitar ser bloqueado novamente.</p>
+            <p>A Meta não quer bloquear você. Ela quer proteger seus usuários. Se você entender isso e respeitar as regras, você pode crescer indefinidamente.</p>
+            <p>Faça conteúdo de rua, pergunte para as pessoas, seja criativo, seja divertido, mas seja seguro. Isso é tudo que você precisa.</p>
+            
+            <div class="success-box">
+                <strong>Seu próximo passo:</strong> Use o checklist antes de cada post. Faça o quiz regularmente. Mantenha-se atualizado sobre mudanças nas políticas da Meta. E acima de tudo, crie conteúdo que você se orgulhe.
+            </div>
+
+            <div class="highlight-box">
+                <strong>Lembre-se:</strong> Os maiores influenciadores do Brasil não cresceram postando sobre cassinos ou rifas. Eles cresceram sendo criativos, autênticos e respeitando as regras. Você pode fazer o mesmo.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Cartilha de Segurança para Influenciadores</p>
+        <p>Criada especialmente para Fernando Gadelha (@feehzero1)</p>
+        <p><a href="http://www.mfdireitodigital.com.br">www.mfdireitodigital.com.br</a></p>
+        <div class="signature">
+            MFDireitoDigital<br>
+            Consultoria em Conformidade Digital e Marketing Seguro<br>
+            Novembro de 2025
+        </div>
+    </footer>
+
+    <script>
+        function corrigirQuiz() {
+            const respostas = {
+                q1: 'a',
+                q2: 'c',
+                q3: 'b',
+                q4: 'b',
+                q5: 'a'
+            };
+
+            let acertos = 0;
+            let total = Object.keys(respostas).length;
+
+            for (let pergunta in respostas) {
+                const selecionada = document.querySelector(`input[name="${pergunta}"]:checked`);
+                if (selecionada && selecionada.value === respostas[pergunta]) {
+                    acertos++;
+                }
+            }
+
+            const percentual = Math.round((acertos / total) * 100);
+            const resultado = document.getElementById('resultado');
+            
+            resultado.classList.add('show');
+            
+            let mensagem = '';
+            if (percentual === 100) {
+                mensagem = 'Perfeito! Você aprendeu tudo. Sua conta está segura!';
+            } else if (percentual >= 80) {
+                mensagem = 'Muito bom! Você entendeu os pontos principais. Revise os que errou.';
+            } else if (percentual >= 60) {
+                mensagem = 'Bom começo! Mas releia a cartilha, tem coisa importante que você perdeu.';
+            } else {
+                mensagem = 'Revise a cartilha. Você precisa entender melhor os gatilhos.';
+            }
+            
+            resultado.innerHTML = `
+                <strong>Resultado:</strong> Você acertou ${acertos} de ${total} perguntas (${percentual}%)<br>
+                <strong>Feedback:</strong> ${mensagem}
+            `;
+        }
+    </script>
+</body>
+</html>
