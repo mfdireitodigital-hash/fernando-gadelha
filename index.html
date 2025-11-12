@@ -414,6 +414,55 @@
             }
         }
     </style>
+
+<style id="mobile-nav-fix">
+/* === Mobile nav fix overrides === */
+nav {
+  background: rgba(255,255,255,0.95) !important;
+  padding: calc(10px + env(safe-area-inset-top)) 20px 10px !important;
+  position: fixed !important;
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+  z-index: 1000 !important;
+  backdrop-filter: saturate(150%) blur(8px);
+}
+
+/* Avoid content hidden behind the fixed nav */
+body { padding-top: 64px !important; }
+
+@media (max-width: 768px) {
+  body { padding-top: 72px !important; }
+
+  nav ul {
+    list-style: none;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none;
+  }
+  nav ul::-webkit-scrollbar { display: none; }
+
+  nav a {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    padding: 8px 12px !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    transition: transform 0.2s !important;
+  }
+}
+
+/* Optional: prevent hover "jitter" on touch devices */
+@media (pointer: coarse) {
+  .image-container img:hover { transform: none !important; }
+}
+</style>
 </head>
 <body>
     <header>
